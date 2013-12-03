@@ -1,0 +1,53 @@
+function update_kivy() {
+  workon kivy
+  cd ~/Develop/apps/Kivy.app/Contents/Resources/kivy
+  git pull
+  make
+  deactivate
+  cd -
+}
+
+function repo_root() {
+  git rev-parse --show-toplevel
+}
+
+function cd_repo_root(){
+  cd $(repo_root)
+}
+
+function mystart() {
+  if [[ $(mysql.server status) =~ "ERROR"* ]]; then  
+    mysql.server start
+  fi
+}
+
+function lg(){
+  if [[ $# -ge 2 ]]; then
+    ls -lA $1 | grep -i $2 $3 $4 $5 $6 $7 $8
+  else
+    if [[ $# -eq 0 ]]; then
+      echo "At least 1 parameter needed (something to grep for)"
+    else
+      ls -lA . | grep -i $1
+    fi
+  fi
+}
+#function check_shell(){
+#  $(ps -p $$ | tail -1) =~ "zsh"*
+#}
+# rbenv initialization not needed 'cause i use ohmyzsh's rbenv plugin
+#if which rbenv > /dev/null; then 
+#  export RBENV_ROOT=/usr/local/var/rbenv
+#  eval "$(rbenv init -)" 
+#fi
+function md(){ mkdir $1 ; cd $1 }
+
+function cr() {
+  if [[ $# -ge 2 ]]; then
+    cp $1 $2
+    echo "Removing $1"
+    rm -f $1
+  else
+    echo "2 arguments needed."
+  fi
+}

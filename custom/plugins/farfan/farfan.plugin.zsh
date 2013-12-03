@@ -1,29 +1,28 @@
-# alias para colorcitos y giladas
-alias ls="ls -hG"
-alias ll="ls -o"
-alias la="ll -A"
-alias lg="la | grep -i"
-alias lr="ls -R "
-alias grep="grep --color=auto"
-alias up="cd .."
-alias h="history"
-alias mplayer="mplayer -msgcolor"
-alias df="df -h"
-alias tree="tree -C"
-# requires sudo pip install pygments
-alias hi="pygmentize -g"
-alias du="du -hs"
-# Show me the size of all the things. The bastard child of du and df.
-# http://gyaresu.org/hacking/2012/08/02/alias-to-show-the-size-of-files-and-folders/
-alias duf='du -sk * | sort -nr | perl -ne '\''($s,$f)=split(m{\t});for (qw(K M G)) {if($s<1024) {printf("%.1f",$s);print "$_\t$f"; last};$s=$s/1024}'\'''
-# Kill all the tabs in Chrome to free up memory
-# [C] explained: http://www.commandlinefu.com/commands/view/402/exclude-grep-from-your-grepped-output-of-ps-alias-included-in-description
-alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v extension-process | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
-# folders and archives
-alias mv="mv -iv"
-alias srm="sudo rm -Rfv"
-alias mkdir="mkdir -p"
-alias cp="rsync --append --progress -azvrE"
+# diretory from which the plugins is being invoked
+dir=$(dirname $0)
+
+env_file="$dir/env"
+if [[ -a $env_file ]]; then
+  source $env_file
+fi
+
+alias_file="$dir/alias"
+if [[ -a $alias_file ]]; then
+  source $alias_file
+fi
+
+# load functions after alias so that they can be inherited
+func_file="$dir/functions.zsh"
+if [[ -a $func_file ]]; then
+  source $func_file
+fi
+
+if [[ -a prompt ]]; then
+  source prompt
+fi
+
+# clean up after ourselves
+unset dir func_file alias_file
 
 # recurrent directories
 alias musik="cd ~/Music/iTunes/iTunes\ Media/Music/"
@@ -31,12 +30,6 @@ alias itunes="open -a itunes"
 alias utorrent="open -a utorrent"
 alias sitez="cd ~/Dropbox/Sites/"
 alias fuck="cd ~/Dropbox/compartidas/Facultad/2do/"
-
-# mac specific alias
-alias o="open"
-alias brup="brew update && brew upgrade"
-alias browserstack="java -jar ~/Dropbox/syncPrefs/cmd/BrowserStackTunnel.jar T6rci6PsccWiU9kF2ygq localhost,80,0"
-alias airport="/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport"
 
 # Apps and frameworks
 alias getwp="wget http://wordpress.org/latest.tar.gz && tar -xvf latest.tar.gz && mv wordpress/* . && srm wordpress/ latest.tar.gz"
@@ -48,28 +41,11 @@ alias s="./symfony"
 alias rmcl="rm -fr cache/* log/*"
 alias arreglarengine="vim lib/vendor/symfony/lib/plugins/sfPropelPlugin/lib/vendor/propel-generator/classes/propel/engine/builder/sql/mysql/MysqlDDLBuilder.php"
 
-# SSH
-alias casa="ssh casa@casa.local"
-alias maia="ssh multimedia@maia.local"
-alias hippie="ssh root@199.115.117.193"
-alias latinman="ssh latinman@latinmanagers.no-ip.org"
-alias latinmanfarfan="ssh farfan@latinmanagers.no-ip.org"
-alias farfan="ssh farfan@farfanauta.local"
-alias seba="ssh seba@tanya.local"
-alias ingenyo="ssh root@192.81.222.195"
-
-# alias for mysql shell commands
-#alias mysql="/Applications/MAMP/Library/bin/mysql"
-#alias mysqladmin="sudo /Applications/MAMP/Library/bin/mysqladmin"
-#alias mysqlstop="sudo /Applications/MAMP/Library/bin/mysqladmin -u root -p shutdown"
-#alias mysqlstart="sudo /Applications/MAMP/Library/bin/mysqld_safe"
-#alias mysql_config="sudo /Applications/MAMP/Library/bin/mysql_config"
-#alias mysqldump="/Applications/MAMP/Library/bin/mysqldump"
-
 alias my="mysql -uroot -p "
-alias mystart="mysql.server start"
+#alias mystart="mysql.server start"
 alias youtube-dl="youtube-dl --max-quality url"
 # git
+# TODO: add these to git itself to get proper tab completion
 alias gs="git status -bs"
 alias ga="git add --all "
 alias gd="git diff "
@@ -83,9 +59,9 @@ alias gco="git checkout "
 alias mf="mdfind"
 alias infcc='cd ~/Dropbox/Sites/infomedica/infomedica-app/ ; s cc ; cd -'
 alias pymulator="kivy ~/Develop/src/simuladorHDD/main.py"
-alias v="vagrant "
+alias v="vim"
 # requires brew install grc
 alias tail="grc tail"
 
-# requires brew install most
-export MANPAGER="/usr/local/bin/most -s"
+
+

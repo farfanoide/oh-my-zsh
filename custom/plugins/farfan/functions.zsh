@@ -11,7 +11,7 @@ function repo_root() {
   git rev-parse --show-toplevel
 }
 
-function cd_repo_root(){
+function grt(){
   cd $(repo_root)
 }
 
@@ -50,4 +50,14 @@ function cr() {
   else
     echo "2 arguments needed."
   fi
+}
+function enable_virtualenv(){
+  # python -> virtualenv(wrapper)
+  export WORKON_HOME="$HOME/.virtualenvs"
+  source /usr/local/bin/virtualenvwrapper.sh
+  export PROJECT_HOME=$HOME/Develop/sites
+}
+
+function shellreload(){
+  exec $SHELL -l
 }

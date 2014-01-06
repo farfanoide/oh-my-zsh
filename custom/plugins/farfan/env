@@ -22,3 +22,5 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 # directories
 export projdir="$HOME/Develop/sites"
+export musicdir="$HOME/Music/iTunes/iTunes\ Media/Music/"
+export downdir="$HOME/Downloads"

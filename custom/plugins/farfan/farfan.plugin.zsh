@@ -26,7 +26,7 @@ unset dir func_file alias_file
 
 # recurrent directories
 alias musik="cd ~/Music/iTunes/iTunes\ Media/Music/"
-alias itunes="open -a itunes"
+# alias itunes="open -a itunes"
 alias utorrent="open -a utorrent"
 alias sitez="cd ~/Dropbox/Sites/"
 alias fuck="cd ~/Dropbox/compartidas/Facultad/2do/"

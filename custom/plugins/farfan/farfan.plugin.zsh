@@ -60,8 +60,4 @@ alias mf="mdfind"
 alias infcc='cd ~/Dropbox/Sites/infomedica/infomedica-app/ ; s cc ; cd -'
 alias pymulator="kivy ~/Develop/src/simuladorHDD/main.py"
 alias v="vim"
-# requires brew install grc
-alias tail="grc tail"
-
-
 

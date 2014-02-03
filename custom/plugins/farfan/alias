@@ -1,5 +1,5 @@
 # alias para colorcitos y giladas
-alias ls="ls -hGF"
+alias ls="ls -hG"
 alias l="ls -o"
 alias la="ll -A"
 # alias lg="la | grep -i"
@@ -48,10 +48,11 @@ alias gc="git commit -m "
 alias gco="git checkout "
 
 alias mf="mdfind"
-alias infcc='cd ~/Dropbox/Sites/infomedica/infomedica-app/ ; s cc ; cd -'
+alias infcc='cd $projdir/docpik/infomedica-app/ ; s cc ; cd -'
 alias pymulator="kivy ~/Develop/src/simuladorHDD/main.py"
 alias v="vim"
 # requires brew install grc
 alias ctail="grc tail"
 
 alias dateformat="date \"+%d-%m-%Y\""
+alias docup="ssh docpik 'cd /var/www/html/docpik ; git pull'"

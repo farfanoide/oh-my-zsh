@@ -32,6 +32,9 @@ function lg(){
     fi
   fi
 }
+function hil(){
+  hi $1 | less
+}
 #function check_shell(){
 #  $(ps -p $$ | tail -1) =~ "zsh"*
 #}

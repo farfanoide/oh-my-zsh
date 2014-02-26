@@ -43,7 +43,7 @@ function hil(){
 #  export RBENV_ROOT=/usr/local/var/rbenv
 #  eval "$(rbenv init -)" 
 #fi
-function md(){ mkdir $1 ; cd $1 }
+function md(){ mkdir -p $1 && cd $1 }
 
 function cr() {
   if [[ $# -ge 2 ]]; then

@@ -8,6 +8,7 @@ alias grep="grep --color=auto"
 alias up="cd .."
 alias h="history"
 alias mplayer="mplayer -msgcolor"
+alias m="mplayer"
 alias df="df -h"
 alias tree="tree -C"
 # requires sudo pip install pygments
@@ -28,6 +29,7 @@ alias cp="rsync --append --progress -azvrE"
 
 # mac specific alias
 alias o="open"
+alias optimize="o -a ImageOptim"
 alias brup="brew update && brew upgrade"
 alias browserstack="java -jar ~/Dropbox/syncPrefs/cmd/BrowserStackTunnel.jar T6rci6PsccWiU9kF2ygq localhost,80,0"
 alias airport="/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport"
@@ -58,3 +60,6 @@ alias dateformat="date \"+%d-%m-%Y\""
 alias docup="ssh docpik 'cd /var/www/html/docpik ; git pull'"
 alias infup="ssh latinman 'cd proyectos/docpik_dev/infomedica-app/  ; git pull'"
 alias stageup="ssh latinman 'cd proyectos/docpik_stage/infomedica-app/  ; git pull'"
+
+
+

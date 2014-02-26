@@ -27,13 +27,29 @@ unset dir func_file alias_file
 # recurrent directories
 alias musik="cd ~/Music/iTunes/iTunes\ Media/Music/"
 # alias itunes="open -a itunes"
-alias utorrent="open -a utorrent"
+alias utorrent="open -a -j utorrent"
 alias sitez="cd ~/Dropbox/Sites/"
 alias fuck="cd ~/Dropbox/compartidas/Facultad/2do/"
 
 # Apps and frameworks
-alias getwp="wget http://wordpress.org/latest.tar.gz && tar -xvf latest.tar.gz && mv wordpress/* . && srm wordpress/ latest.tar.gz"
-alias gethtml5="wget https://github.com/h5bp/html5-boilerplate/archive/master.zip && tar -xvf master.zip && mv html5-boilerplate-master/* . && rm -rfv master.zip html5-boilerplate-master/"
+function getwp(){
+    wget http://wordpress.org/latest.tar.gz
+    tar -xvf latest.tar.gz
+    if [[ $# -gt 0 ]]; then
+        mv wordpress/* $1
+        rm -rf wordpress
+    fi
+    rm -rf latest.tar.gz
+}
+function gethtml5(){
+    wget https://github.com/h5bp/html5-boilerplate/archive/master.zip
+    tar -xvf master.zip
+    if [[ $# -gt 0 ]]; then
+        mv html5-boilerplate-master/* $1
+        rm -rf html5-boilerplate-master/
+    fi
+    rm -rfv master.zip 
+}
 alias getnormalize="wget https://raw.github.com/necolas/normalize.css/master/normalize.css"
 alias runtests="ipython -m unittest "
 # Symfony

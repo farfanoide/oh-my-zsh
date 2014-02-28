@@ -58,7 +58,7 @@ alias ctail="grc tail"
 
 alias dateformat="date \"+%d-%m-%Y\""
 alias docup="ssh docpik 'cd /var/www/html/docpik ; git pull'"
-alias infup="ssh latinman 'cd proyectos/docpik_dev/infomedica-app/  ; git pull'"
+alias infup="ssh latinman 'cd proyectos/docpik_dev/infomedica-app/ && git pull && ./symfony cc'"
 alias stageup="ssh latinman 'cd proyectos/docpik_stage/infomedica-app/  ; git pull'"
 
 

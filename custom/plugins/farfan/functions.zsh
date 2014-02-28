@@ -16,17 +16,21 @@ function grt(){
 }
 
 function mystart() {
-  if [[ $(mysql.server status) =~ "ERROR"* ]]; then  
+  if [[ $(mysql.server status) =~ "ERROR"* ]]; then
     mysql.server start
   fi
 }
 
 function lg(){
   if [[ $# -ge 2 ]]; then
-    ls -lA $1 | grep -i $2 $3 $4 $5 $6 $7 $8
+    args=($*)
+    to_grep=$args[0]
+    unset args[0]
+    ls -lA $to_grep | grep -i ${args[*]}
   else
     if [[ $# -eq 0 ]]; then
       echo "At least 1 parameter needed (something to grep for)"
+      echo "usage: lg [dir] <grep args>"
     else
       ls -lA . | grep -i $1
     fi
@@ -39,9 +43,9 @@ function hil(){
 #  $(ps -p $$ | tail -1) =~ "zsh"*
 #}
 # rbenv initialization not needed 'cause i use ohmyzsh's rbenv plugin
-#if which rbenv > /dev/null; then 
+#if which rbenv > /dev/null; then
 #  export RBENV_ROOT=/usr/local/var/rbenv
-#  eval "$(rbenv init -)" 
+#  eval "$(rbenv init -)"
 #fi
 function md(){ mkdir -p $1 && cd $1 }
 

@@ -21,12 +21,14 @@ function mystart() {
   fi
 }
 
+# TODO: check it out, args[0] not working
 function lg(){
   if [[ $# -ge 2 ]]; then
     args=($*)
-    to_grep=$args[0]
-    unset args[0]
+    to_grep=$args[1]
+    unset args[1]
     ls -lA $to_grep | grep -i ${args[*]}
+    unset args
   else
     if [[ $# -eq 0 ]]; then
       echo "At least 1 parameter needed (something to grep for)"

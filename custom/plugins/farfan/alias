@@ -25,6 +25,7 @@ alias mv="mv -iv"
 alias srm="sudo rm -Rfv"
 alias mkdir="mkdir -p"
 alias cp="rsync --append --progress -azvrE"
+alias s="ssh"
 
 
 # mac specific alias

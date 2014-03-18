@@ -53,7 +53,7 @@ function gethtml5(){
 alias getnormalize="wget https://raw.github.com/necolas/normalize.css/master/normalize.css"
 alias runtests="ipython -m unittest "
 # Symfony
-alias s="./symfony"
+alias sy="./symfony"
 alias rmcl="rm -fr cache/* log/*"
 alias arreglarengine="vim lib/vendor/symfony/lib/plugins/sfPropelPlugin/lib/vendor/propel-generator/classes/propel/engine/builder/sql/mysql/MysqlDDLBuilder.php"
 

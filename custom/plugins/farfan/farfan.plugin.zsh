@@ -48,32 +48,7 @@ function gethtml5(){
         mv html5-boilerplate-master/* $1
         rm -rf html5-boilerplate-master/
     fi
-    rm -rfv master.zip 
+    rm -rfv master.zip
 }
 alias getnormalize="wget https://raw.github.com/necolas/normalize.css/master/normalize.css"
-alias runtests="ipython -m unittest "
-# Symfony
-alias sy="./symfony"
-alias rmcl="rm -fr cache/* log/*"
-alias arreglarengine="vim lib/vendor/symfony/lib/plugins/sfPropelPlugin/lib/vendor/propel-generator/classes/propel/engine/builder/sql/mysql/MysqlDDLBuilder.php"
-
-alias my="mysql -uroot -p "
-#alias mystart="mysql.server start"
-alias youtube-dl="youtube-dl --max-quality url"
-# git
-# TODO: add these to git itself to get proper tab completion
-alias gs="git status -bs"
-alias ga="git add --all "
-alias gd="git diff "
-# http://gyaresu.org/hacking/2012/06/19/a-better-git-log
-#alias gl="git log --pretty=oneline --abbrev-commit --graph --decorate"
-alias gl="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --"
-
-alias gc="git commit -m "
-alias gco="git checkout "
-
-alias mf="mdfind"
-alias infcc='cd ~/Dropbox/Sites/infomedica/infomedica-app/ ; s cc ; cd -'
-alias pymulator="kivy ~/Develop/src/simuladorHDD/main.py"
-alias v="vim"
 

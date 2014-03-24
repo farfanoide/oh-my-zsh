@@ -24,9 +24,11 @@ function mystart() {
 # TODO: check it out, args[0] not working
 function lg(){
   if [[ $# -ge 2 ]]; then
-    args=($*)
-    to_grep=$args[1]
-    unset args[1]
+    args=($@)
+    to_grep=$args[0]
+    echo $args[0]
+    echo $args
+    unset args[0]
     ls -lA $to_grep | grep -i ${args[*]}
     unset args
   else
@@ -37,6 +39,7 @@ function lg(){
       ls -lA . | grep -i $1
     fi
   fi
+  unset args
 }
 function hil(){
   hi $1 | less
@@ -88,6 +91,6 @@ extract() {
     echo "'$1' is not a valid file!"
   fi
 }
-function shellreload(){
+function reloadshell(){
   exec $SHELL -l
 }
